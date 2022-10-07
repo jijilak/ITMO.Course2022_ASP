@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Web;
 using System.Web.Mvc;
 using WebMVCR1.Models;
+using static System.Web.Razor.Parser.SyntaxConstants;
 
 namespace WebMVCR1.Controllers
 {
@@ -44,7 +46,10 @@ namespace WebMVCR1.Controllers
         //////////////////////////////////////Lab2Ex1.2/////////////////////////////////
         public string Index()
         {
-            string res = ExeStruct();
+            //string res = ExeStruct();
+            //string res = StudyCsharp.SetStatus(3);
+            //string res = StudyCsharp.ExeSwitch(StudyCsharp.SetStatus(3));
+            string res = StudyCsharp.GetFunction(0, 9);
             return res;
         }
         public string ExeEnum()
@@ -66,7 +71,8 @@ namespace WebMVCR1.Controllers
             goldBankAccount.accBal = (decimal)3200.00;
             goldBankAccount.accNo = 123;
 
-            string res = String.Format("Номер счета {0}, баланс {1}, тип {2}", goldBankAccount.accNo, goldBankAccount.accBal, goldBankAccount.accType);
+            //string res = String.Format("Номер счета {0}, баланс {1}, тип {2}", goldBankAccount.accNo, goldBankAccount.accBal, goldBankAccount.accType);
+            string res = String.Format("Информация о банковском счете: {0}", goldBankAccount);
             return res;
         }
     }
