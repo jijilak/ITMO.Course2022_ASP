@@ -10,8 +10,8 @@ namespace WebMVCR1.Models
     {
         Checking, Deposit
     }
-    public struct BankAccount 
-    { 
+    public struct BankAccount
+    {
         public long accNo;
         public decimal accBal;
         public AccountType accType;
@@ -66,25 +66,135 @@ namespace WebMVCR1.Models
             int k;
             int f = 1;
             bool ok = true;
-           
-            try 
-            { 
+
+            try
+            {
                 checked
-                { 
-                    for (k = 2; k <= n; ++k) 
+                {
+                    for (k = 2; k <= n; ++k)
                     {
                         f = f * k;
                     }
-                } 
+                }
             }
-            catch (Exception) 
+            catch (Exception)
             {
                 f = 0;
                 ok = false;
-                
+
             }
             answer = f;
             return ok;
+        }
+    }
+
+    public class Triangle : Shape
+    {
+        //public double Sta { get; set; }
+        public double Stb { get; set; }
+        public double Stc { get; set; }
+
+        //public string Name
+        //{
+        //    get
+        //    {
+        //        //return String.Format("\"Треугольник со сторонами {0}, {1} и {2}\"", Sta, Stb, Stc);
+        //        return String.Format("\"Треугольник со сторонами {0}, {1} и {2}\"", St, Stb, Stc);
+        //    }
+        //}
+
+        override public string Name
+        { 
+            get
+            {
+                return String.Format("\"Треугольник со сторонами {0}, {1} и {2}\"", St, Stb, Stc); 
+            }
+        }
+        public double Perimeter
+        {
+            get
+            {
+                //double p = Sta + Stb + Stc;
+                double p = St + Stb + Stc;
+                return p;
+            }
+        }
+        public double Area
+        {
+            get
+            {
+                //double sq = Math.Sqrt(Perimeter / 2 * (Perimeter / 2 - Sta) * (Perimeter / 2 - Stb) * (Perimeter / 2 - Stc));
+                double sq = Math.Sqrt(Perimeter / 2 * (Perimeter / 2 - St) * (Perimeter / 2 - Stb) * (Perimeter / 2 - Stc));
+                return sq;
+            }
+        }
+
+
+        public Triangle(double a, double b, double c)
+        {
+            //Sta = a;
+            St = a;
+            Stb = b;
+            Stc = c;
+        }
+        //public double Perimeter => Math.Round(Sta + Stb + Stc);
+        //public string Name => $"\"Треугольник со сторонами {Sta},{Stb} и {Stc}\"";
+        ////Это альтернативный код, доступный только для чтения.
+    }
+
+    public class Circle : Shape
+    {
+        //public double St
+        //{
+        //get;
+        //set;
+        //}
+        //public string Name
+        //{
+        //    get
+        //    {
+        //        return String.Format("\"Окружность с радиусом {0}\"", St);
+        //    }
+        //}
+
+        override public string Name 
+        {
+            get
+            {
+                return String.Format("\"Окружность с радиусом {0}\"", St);
+            } 
+        }
+        public Circle(double a)
+        {
+            St = a;
+        }
+        public double Dlina
+        {
+            get
+            {
+                double p = 2 * Math.PI * St;
+                return p;
+            }
+        }
+        public double Area
+        {
+            get
+            {
+                double sq = Math.PI * St * St;
+                return sq;
+            }
+        }
+    }
+
+    public class Shape
+    {
+        public double St { get; set; }
+        virtual public string Name
+        {
+            get
+            {
+                return String.Format("\"Фигура\"");
+            }
         }
     }
 }
