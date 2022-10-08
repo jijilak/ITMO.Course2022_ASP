@@ -54,7 +54,8 @@ namespace WebMVCR1.Controllers
             //string res = ExeFactorial(5);
             //string res = ExeTriangle();
             //string res = ExeCircle();
-            string res = ExePolim();
+            //string res = ExePolim();
+            string res = ExeCollection();
             return res;
         }
         public string ExeEnum()
@@ -113,6 +114,37 @@ namespace WebMVCR1.Controllers
             foreach (Shape item in sh)
             {
                 str.AppendFormat("Это фигура {0}", item.Name + "<p>");
+            }
+            return str.ToString();
+        }
+        public string ExeCollection()
+        {
+            //List<Circle> cirs = new List<Circle>
+            //{
+            //    new Circle(12),
+            //    new Circle(5),
+            //    new Circle(15),
+            //    new Circle(6)
+            //};
+            //cirs.Add(new Circle(7));
+            //cirs.Sort();
+
+            //StringBuilder str = new StringBuilder();
+            //foreach (Shape item in cirs)
+                List<Triangle> trgl = new List<Triangle>
+            {
+                new Triangle(12, 3, 2),
+                new Triangle(5, 7, 1),
+                new Triangle(15, 10, 15),
+                new Triangle(6, 6, 6)
+            };
+            trgl.Add(new Triangle(7, 6, 2));
+            trgl.Sort();
+
+            StringBuilder str = new StringBuilder();
+            foreach (Shape item in trgl)
+            {
+                str.AppendFormat("Это фигура {0}", item.Name + "<p>"); 
             }
             return str.ToString();
         }

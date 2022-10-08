@@ -88,8 +88,14 @@ namespace WebMVCR1.Models
         }
     }
 
-    public class Triangle : Shape
+    public class Triangle : Shape, IComparable<Triangle>
     {
+        public int CompareTo(Triangle other)
+        {
+            if (this.Perimeter == other.Perimeter) return 0;
+            else if (this.Perimeter > other.Perimeter) return 1;
+            else return -1;
+        }
         //public double Sta { get; set; }
         public double Stb { get; set; }
         public double Stc { get; set; }
@@ -141,8 +147,8 @@ namespace WebMVCR1.Models
         //public string Name => $"\"Треугольник со сторонами {Sta},{Stb} и {Stc}\"";
         ////Это альтернативный код, доступный только для чтения.
     }
-
-    public class Circle : Shape
+    public class Circle : Shape, IComparable<Circle>
+    //public class Circle : Shape
     {
         //public double St
         //{
@@ -156,6 +162,12 @@ namespace WebMVCR1.Models
         //        return String.Format("\"Окружность с радиусом {0}\"", St);
         //    }
         //}
+        public int CompareTo(Circle other) 
+        {
+            if (this.Area == other.Area) return 0;
+            else if (this.Area > other.Area) return 1;
+            else return -1; 
+        }
 
         override public string Name 
         {
