@@ -4,29 +4,27 @@ using System.Linq;
 using System.Security.Policy;
 using System.Web;
 using System.Xml.Linq;
+using RSVP;
 
-namespace RSVP
-{
     public class GuestResponse
+{
+    public int GuestResponseIdId { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public string Phone { get; set; }
+    public bool? WillAttend { get; set; }
+    public DateTime Rdata { get; set; }
+
+    public GuestResponse()
     {
-        public int GuestResponseIdId { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public bool? WillAttend { get; set; }
-        public DateTime Rdata { get; set; }
+    }
 
-        public GuestResponse()
-        {
-        }
-
-        public GuestResponse(string name, string email, string phone, bool? willattend)
-        {
-            Name = name;
-            Email = email;
-            Phone = phone;
-            WillAttend = willattend;
-            Rdata = DateTime.Now;
-        }
+    public GuestResponse(string name, string email, string phone, bool? willattend)
+    {
+        Name = name;
+        Email = email;
+        Phone = phone;
+        WillAttend = willattend;
+        Rdata = DateTime.Now;
     }
 }

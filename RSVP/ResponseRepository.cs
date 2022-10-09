@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using RSVP;
 
-namespace RSVP
-{
     public class ResponseRepository
     {
         private static ResponseRepository repository = new ResponseRepository();
@@ -24,4 +23,3 @@ namespace RSVP
             responses.Add(response);
         }
     }
-}
