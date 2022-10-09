@@ -16,6 +16,10 @@ namespace RSVP
         public bool? WillAttend { get; set; }
         public DateTime Rdata { get; set; }
 
+        public GuestResponse()
+        {
+        }
+
         public GuestResponse(string name, string email, string phone, bool? willattend)
         {
             Name = name;
